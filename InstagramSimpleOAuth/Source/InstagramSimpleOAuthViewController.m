@@ -88,7 +88,7 @@ NSString *const InstagramLoginCancelButtonTitle = @"OK";
     if (authorizationCode) {
         [self.instagramAuthenticationManager authenticateClientWithAuthCode:authorizationCode
                                                                     success:^(InstagramLoginResponse *response) {
-                                                                        [self completeAuthWithLoginResponse:response];
+                                                                        [self performSelector:@selector(completeAuthWithLoginResponse:) withObject:response afterDelay:0.5];
                                                                     } failure:^(NSError *error) {
                                                                         [self completeWithError:error];
                                                                     }];
